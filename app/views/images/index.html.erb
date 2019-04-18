@@ -12,6 +12,7 @@
   <h1>
     Shingle Lines
   </h1>
+  <h3> <%= link_to "Your Favourites ", favourite_index_url, class: "pull-left" %> <%= Favourite.where(:user_id => current_user.id).count %> </h3>
 </header>
 <main>
   <div class="slideshow-container">

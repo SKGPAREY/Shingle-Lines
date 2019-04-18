@@ -1,9 +1,11 @@
 <h1>Your Favourites</h1>
 
-<%@favourites.each do|fav|  %>
+<%= link_to "Home", images_index_path %>
+<br>
+<%@favourites.select("DISTINCT img_url,image_name").each do|fav|  %>
 
-<div>        <img src="<%= fav.img_url %>" style="width:30%">
+<div>  <img src="<%= fav.img_url %>" style="width:30%">
   </div><br>
-  <div><strong><%= fav.image_name %></strong></div>
+  <div><strong>Total <%= @favourites.where(:image_name => fav.image_name).count %> -- <%= fav.image_name %></strong></div>
 
 <% end %>
